@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'Number of participants' => 'Number of participants',
+    'The number of people in the car' => 'The number of people in the car',
+    'Select date tour' => 'Select start date of the tour',
+    'Available' => 'Available',
+    'Not available' => 'Not available',
+    'Selected' => 'Selected',
+    'Adults' => 'Adults',
+    'Kids' => 'Kids',
+    'Kids ages' => "Child's age",
+    'from' => 'from',
+    'to' => 'to',
+    'Select time' => 'Select time',
+    'Order details' => 'Order details',
+    'Date' => 'Date',
+    'Time' => 'Time',
+    'Individual excursion' => 'Individual excursion',
+    'persons' => 'persons',
+    'Ask your question to the tour operator' => 'Ask your question to the tour operator',
+    'Cost' => 'Cost',
+    'Prepay' => 'Prepay',
+    'After booking confirm' => 'After conformation',
+    'Request is accepted' => 'Request is accepted',
+    'Send request' => 'Send request',
+];

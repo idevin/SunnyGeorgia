@@ -1,0 +1,73 @@
+stages:
+  - dev
+  - master
+
+deploy:dev:
+  stage: dev
+  before_script:
+    - 'which ssh-agent || ( apk add --update --no-cache openssh )'
+    - eval $(ssh-agent -s)
+    - ssh-add - <<< "${DEV_KEY}"
+  script:
+    - ssh -A -t -o StrictHostKeyChecking=no -l root 188.124.36.64
+      "cd /home/sunnygeorgia_dev ; bash -c '
+      git reset --hard HEAD &&
+      git clean -f -d &&
+      git fetch && git pull &&
+      composer install --ignore-platform-reqs --no-progress --no-scripts &&
+      php artisan cache:clear &&
+      php artisan route:clear &&
+      php artisan route:trans:cache &&
+      php artisan view:clear &&
+      php artisan config:cache &&
+      php artisan currency:update &&
+      php artisan i18n:import &&
+      php artisan migrate -n --force &&
+      php artisan db:seed -n --force &&
+      source /root/.nvm/nvm.sh &&
+      nvm use 14.18.1 &&
+      rm -rf node_modules &&
+      npm install &&
+      npm run prod '"
+  only:
+    - dev
+
+deploy:master:
+  stage: master
+  before_script:
+    - 'which ssh-agent || ( apk add --update --no-cache openssh )'
+    - eval $(ssh-agent -s)
+    - ssh-add - <<< "${PROD_KEY}"
+  script:
+    - ssh -A -t -o StrictHostKeyChecking=no -l root 188.124.36.64
+      "cd /home/sunnygeorgia ; bash -c '
+      git reset --hard HEAD &&
+      git clean -f -d &&
+      git fetch && git pull &&
+      composer install --ignore-platform-reqs --no-progress --no-scripts &&
+      php artisan cache:clear &&
+      php artisan route:clear &&
+      php artisan route:trans:cache &&
+      php artisan view:clear &&
+      php artisan config:cache &&
+      php artisan currency:update &&
+      php artisan i18n:import &&
+      php artisan migrate -n --force &&
+      php artisan db:seed -n --force &&
+      source /root/.nvm/nvm.sh &&
+      nvm use 14.18.1 &&
+      rm -rf node_modules &&
+      npm install &&
+      npm run prod &&
+      mkdir -p /home/sunnygeorgia/public/js/ui &&
+      ln -sf /home/blog/public/js/app.js /home/sunnygeorgia/public/js/app.js &&
+      ln -sf /home/blog/public/js/admin.js /home/sunnygeorgia/public/js/admin.js &&
+      ln -sf /home/blog/public/js/appshow.js /home/sunnygeorgia/public/js/appshow.js &&
+      ln -sf /home/blog/public/css/app.css /home/sunnygeorgia/public/css/app.css &&
+      ln -sf /home/blog/public/css/appshow.css /home/sunnygeorgia/public/css/appshow.css &&
+      ln -sf /home/blog/public/js/gijgo.min.js /home/sunnygeorgia/public/js/gijgo.min.js &&
+      ln -sf /home/blog/public/css/gijgo.min.css /home/sunnygeorgia/public/css/gijgo.min.css &&
+      ln -sf /home/blog/public/css/gijgo.min.css /home/sunnygeorgia/public/css/gijgo.min.css &&
+      ln -sf /home/blog/public/js/ui/icons.svg /home/sunnygeorgia/public/js/ui/icons.svg '"
+  only:
+    - master

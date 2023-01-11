@@ -1,0 +1,52 @@
+
+@font-face {
+  font-family: 'PT Sans';
+  font-display: fallback;
+  src: url("../fonts/ptsans/ptsansregular.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PT Sans';
+  font-display: fallback;
+  src: url("../fonts/ptsans/ptsansbold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-display: fallback;
+  src: url("../fonts/raleway/ralewayregular.woff2") format("woff2"),
+  url("../fonts/raleway/ralewayregular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-display: fallback;
+  src: url("../fonts/raleway/ralewaylight.woff2") format("woff2"),
+  url("../fonts/raleway/ralewaylight.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-display: fallback;
+  src: url("../fonts/raleway/ralewaymedium.woff2") format("woff2"),
+  url("../fonts/raleway/ralewaymedium.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-display: fallback;
+  src: url("../fonts/raleway/ralewaybold.woff2") format("woff2"),
+  url("../fonts/raleway/ralewaybold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}

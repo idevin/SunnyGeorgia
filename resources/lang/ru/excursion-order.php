@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'Number of participants' => 'Количество участников',
+    'The number of people in the car' => 'Количество человек в машине',
+    'Select date excursion' => 'Выберите дату и количество участников',
+    'Excursion date' => 'Дата экскурсии',
+    'Available' => 'Доступно',
+    'Not available' => 'Недоступно',
+    'Selected' => 'Выбранно',
+    'Adults' => 'Взрослых',
+    'Kids' => 'Детей',
+    'from' => 'от',
+    'to' => 'до',
+    'Select time' => 'Время отправления',
+    'Select a date' => 'Выберите дату',
+    'Order details' => 'Детали заказа',
+    'Date' => 'Дата',
+    'Time' => 'Время',
+    'Individual excursion' => 'Индивидуальная экскурсия',
+    'persons' => 'человек',
+    'Ask your question to the tour operator' => 'Задайте свой вопрос туроператору',
+    'Cost' => 'Стоимость',
+    'Prepay' => 'Предоплата',
+    'After booking confirm' => 'После подтверждения бронирования',
+    'Request is accepted' => 'Запрос принят',
+    'Send request' => 'Отправить запрос',
+];

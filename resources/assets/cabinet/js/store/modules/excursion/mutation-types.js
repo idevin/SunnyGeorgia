@@ -1,0 +1,1 @@
+export const SET_EXCURSION = 'SET_EXCURSION'

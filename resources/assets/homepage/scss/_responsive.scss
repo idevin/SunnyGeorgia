@@ -1,0 +1,186 @@
+@media (max-width: 768px) {
+  .search-block__forms-item-content {
+    cursor: pointer;
+
+    .popover-origin {
+      left: auto !important;
+      right: 0 !important;
+
+      .popover-content:after {
+        display: none !important;
+      }
+
+    }
+  }
+}
+
+@media (min-width: 576px) {
+
+  .search-block__forms {
+    &-item {
+      height: auto;
+      flex-flow: column;
+
+      &-select, &-date {
+        width: auto;
+        border-right: none;
+      }
+    }
+  }
+
+
+
+
+  .home-filters-checkbox-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 17px 10px 0;
+    box-sizing: border-box;
+    width: 50%;
+  }
+
+  .width-33-fix .home-filters-checkbox-row {
+    width: 33.33%;
+  }
+  .width-100-fix .home-filters-checkbox-row {
+    width: 100%;
+  }
+
+  .footerRightLine {
+    border-right: 1px dashed #a9a9a7;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-block {
+    display: none;
+  }
+  .search-block__forms-item-select, .search-block__forms-item-date {
+    padding: 0 25px
+  }
+  .search-block__forms-item {
+    padding-left: 15px;
+    flex-flow: row;
+    align-items: center;
+
+    &-content {
+
+    }
+
+    &-submit {
+      display: flex !important;
+      position: static;
+      height: 100%;
+      padding: 5px 20px;
+      margin-top: 0;
+      transform: translate(0)
+    }
+
+    &-select {
+      width: 420px !important;
+      border-right: 1px solid #d6d6d6;
+
+    }
+
+    &-date {
+      width: 100% !important;
+    }
+  }
+
+  .text-md-right {
+    text-align: right;
+  }
+  .ourQualities {
+    margin-bottom: 0;
+  }
+  .content {
+    padding: 20px 40px 30px;
+  }
+
+}
+
+@media (min-width: 992px) {
+  .search-block {
+    top: 33%
+  }
+  .filterBlockHeaderMoreButton {
+    display: block;
+  }
+  .priceSliderWrap {
+    display: block;
+  }
+  .textBlockSection {
+
+    & .row {
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+
+    & .col-md-6 {
+      padding: 0 40px;
+    }
+  }
+
+  .text-lg-right {
+    text-align: right;
+  }
+
+  .text-lg-left {
+    text-align: left;
+  }
+
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px !important;
+  }
+}
+
+/* Responsive images in search form */
+
+
+.headerBackgroundItem {
+  background-image: url("/static/images/assets/filterform/bg_tour_summer_2021_1024x576.jpg");
+}
+
+.headerBackgroundItem.excursions {
+  background-image: url("/static/images/assets/filterform/bg_excursion_summer_2021_640x360.jpg");
+}
+
+@media (min-width: 576px) {
+  .headerBackgroundItem {
+    background-image: url("/static/images/assets/filterform/bg_tour_summer_2021_1024x576.jpg");
+  }
+  .headerBackgroundItem.excursions {
+    background-image: url("/static/images/assets/filterform/bg_excursion_summer_2021_1024x576.jpg");
+  }
+}
+
+@media (min-width: 768px) {
+  .headerBackgroundItem {
+    background-image: url("/static/images/assets/filterform/bg_tour_summer_2021_1024x768.jpg");
+  }
+  .headerBackgroundItem.excursions {
+    background-image: url("/static/images/assets/filterform/bg_excursion_summer_2021_1024x768.jpg");
+  }
+}
+
+@media (min-width: 992px) {
+  .headerBackgroundItem {
+    background-image: url("/static/images/assets/filterform/bg_tour_summer_2021_1366x768.jpg");
+  }
+  .headerBackgroundItem.excursions {
+    background-image: url("/static/images/assets/filterform/bg_excursion_summer_2021_1366x768.jpg");
+  }
+}
+
+@media (min-width: 1200px) {
+  .headerBackgroundItem {
+    background-image: url("/static/images/assets/filterform/bg_tour_summer_2021_1920x1080.jpg");
+  }
+  .headerBackgroundItem.excursions {
+    background-image: url("/static/images/assets/filterform/bg_excursion_summer_2021_1920x1080.jpg");
+  }
+}

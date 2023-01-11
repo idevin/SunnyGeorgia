@@ -1,0 +1,374 @@
+
+.hidden {
+  display: none;
+}
+
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.map-block {
+  height: 300px;
+  position: relative;
+  z-index: 9;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  padding: 0;
+  list-style: none;
+  margin: 0
+}
+
+.breadcrumb-item {
+  display: inline-block;
+  margin: 0;
+}
+
+.breadcrumb-item a {
+  color: #727272;
+}
+
+.breadcrumb-item:hover {
+  color: #727272;
+  text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+  color: #0e4061;
+  font-weight: bold;
+  text-decoration: none
+}
+
+.breadcrumb-item + .breadcrumb-item:before {
+  display: inline-block;
+  padding-right: 12px;
+  padding-left: 12px;
+  color: #a9b5c7;
+  content: ">";
+}
+
+.icons-block {
+
+  svg {
+    vertical-align: 0;
+  }
+
+  a {
+    display: block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: #2f2f2f;
+    border: 1px solid #2f2f2f;
+    border-radius: 50%;
+    font-size: 24px;
+    transition: all ease .3s;
+    margin-bottom: 25px;
+
+    &:hover {
+      background: #ffc412;
+      border-color: #ffc412;
+      color: #000;
+      box-shadow: 0 2px 5px 0 rgba(92, 105, 135, .54)
+    }
+  }
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 50px;
+
+  &__information {
+    margin-bottom: 50px;
+  }
+
+  &__left {
+    border-radius: 16px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.17);
+    padding: 0 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  &__right {
+    border-radius: 16px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.17);
+    padding: 0 15px 20px;
+  }
+
+  &__title {
+    text-align: center;
+
+    &-icon {
+      padding: 40px 0 20px;
+    }
+
+    &-label {
+      font-weight: bold;
+      font-size: 18px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__content {
+    &-personal {
+      padding-top: 15px;
+      line-height: 21px;
+    }
+
+    &-wrap {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-phones {
+      &-item {
+        margin-bottom: 20px;
+
+        &-label {
+          font-weight: bold;
+          font-size: 18px;
+        }
+
+        &-data {
+          padding: 10px 0;
+
+          a {
+            color: #606161;
+            text-decoration: none;
+            margin-left: 5px;
+          }
+
+          .phone {
+            margin-left: 0;
+            margin-right: 5px;
+          }
+
+          .viber:hover {
+            color: #79489c;
+          }
+
+          .telegram:hover {
+            color: #1f88c9;
+          }
+
+          .whatsapp:hover {
+            color: #61d632;
+          }
+        }
+      }
+    }
+
+    &-input {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #dddddd;
+      padding: 8px 15px;
+      margin-bottom: 20px;
+      outline: none;
+
+      &-wrap {
+        display: flex;
+        justify-content: space-between;
+
+        .contacts__content-input, .contacts__content-submit, .contacts__content-select {
+          width: 47%;
+        }
+      }
+    }
+
+    &-select {
+      padding-bottom: 15px;
+
+      &-label {
+        padding: 0 0 10px 15px;
+      }
+
+      &-block {
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid #dddddd;
+        padding: 8px 15px;
+      }
+    }
+
+    &-submit {
+      border-radius: 10px;
+      background-color: rgb(255, 217, 97);
+      border: none;
+      transition: all ease .3s;
+
+      &:hover {
+        background-color: rgb(255, 211, 78);
+      }
+    }
+  }
+
+}
+
+.checkbox-row-wrap {
+  position: relative;
+  padding-bottom: 20px;
+
+  &:hover {
+    .checkbox-row-more {
+      top: 100%;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.checkbox-row-more {
+  display: inline-block;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  color: #000;
+  font-size: 18px;
+  background: #ffd961;
+  padding: 10px 15px;
+  border-radius: 10px;
+  top: calc(100% + 40px);
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all ease .3s;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.17);
+
+  &:hover {
+    color: #000;
+    text-decoration: none;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    border: 15px solid transparent;
+    border-bottom: 15px solid #ffd961;
+  }
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 15px;
+  cursor: pointer;
+  transition: all ease .3s;
+  margin: 0;
+  user-select: none;
+}
+
+.checkbox-row + .checkbox-row {
+  margin-top: 20px
+}
+
+.checkbox-row .search-text {
+  margin: 0;
+  cursor: pointer
+}
+
+.checkbox {
+  position: relative;
+  vertical-align: top;
+  display: flex;
+  align-items: center
+}
+
+.checkbox-field {
+  position: absolute;
+}
+
+.checkbox-field:checked + .checkbox-label:after {
+  border-color: #000;
+  animation: check .5s;
+}
+
+.checkbox-field:checked + .checkbox-label {
+  background-color: #ffd961;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0);
+}
+
+.checkbox-label {
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  transition: background-color .3s, border-color .3s;
+  backface-visibility: hidden;
+  will-change: background-color, border-color;
+  display: block;
+  margin-right: 10px;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .4);
+}
+
+.checkbox-label:after {
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 6px;
+  width: 6px;
+  height: 10px;
+  border-top: 3px solid transparent;
+  border-right: 2px solid transparent;
+  content: "";
+  transform: scaleX(-1) rotate(135deg);
+  transform-origin: left top;
+}
+
+.filter-text {
+  font-size: 14px;
+  color: #8d8d8d;
+}
+
+@-webkit-keyframes check {
+  0% {
+    width: 0;
+    height: 0
+  }
+
+  25% {
+    width: 6px;
+    height: 0
+  }
+
+  50% {
+    width: 6px;
+    height: 10px
+  }
+}
+
+@keyframes check {
+  0% {
+    width: 0;
+    height: 0
+  }
+
+  25% {
+    width: 6px;
+    height: 0
+  }
+
+  50% {
+    width: 6px;
+    height: 10px
+  }
+}

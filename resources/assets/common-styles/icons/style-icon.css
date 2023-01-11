@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'sunnygeorgia';
+  font-display: swap;
+  src:  url('fonts/sunnygeorgia.woff?zej27q') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'sunnygeorgia' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-instagram:before {
+    content: "\e911";
+}
+
+.icon-vk:before {
+    content: "\e900";
+}
+
+.icon-twitter:before {
+    content: "\e901";
+}
+
+.icon-google:before {
+    content: "\e902";
+}
+
+.icon-odnoklassniki:before {
+    content: "\e903";
+}
+
+.icon-facebook:before {
+    content: "\e904";
+}
+
+.icon-like:before {
+    content: "\e905";
+}
+
+.icon-piggy-bank:before {
+    content: "\e906";
+}
+
+.icon-shield:before {
+    content: "\e907";
+}
+
+.icon-telephone:before {
+    content: "\e908";
+}
+
+.icon-zoom:before {
+    content: "\e909";
+}
+
+.icon-beach:before {
+    content: "\e90a";
+}
+
+.icon-house:before {
+    content: "\e90b";
+}
+
+.icon-arrow-down:before {
+    content: "\e90c";
+}
+
+.icon-directions:before {
+    content: "\e90d";
+}
+
+.icon-calendar:before {
+    content: "\e90e";
+}
+
+.icon-location:before {
+    content: "\e90f";
+}
+
+.icon-car:before {
+    content: "\e910";
+}

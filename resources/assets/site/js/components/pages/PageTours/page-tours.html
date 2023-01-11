@@ -1,0 +1,216 @@
+<div class="row flex-lg-row">
+    <div class="col-lg-3 aside" id="aside">
+        <div id="adv-search" class="collapse d-lg-block">
+            <div class="adv-search mt-3 mt-lg-0">
+                <div class="adv-search-inner">
+                    <h5>{{trans('filter.Find')}}</h5>
+                    <div>
+                        <div class="form-group">
+                            <label>{{trans('main.Start_place')}}:</label>
+                            <select class="js-city" name="placeFrom" style="width: 100%;" :data-placeholder="trans('tours.Place')" v-model="filterParams.placeFrom" @change="changeFormParam('placeFrom', filterParams.placeFrom)">
+                                <option disabled value="">{{trans('main.Start_place')}}</option>
+                                <option v-for="place in places" :value="place.id">{{place.name}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>{{trans('tours.Tours_start_date')}}</label>
+                            <div class="adv-search-date picker-parent picker-blue">
+                                <svg class="icon icon--calendar" width="29px" height="32px">
+                                    <use xlink:href="#calendar"></use>
+                                </svg>
+
+                                <input type="text" class="form-control js-date-single"
+                                       name="date" id="tour_interval" placeholder="ДД.ММ.ГГГГ"
+                                       v-model="filterParams.filterDate"
+                                       @change="changeFormParam('date', filterParams.filterDate)"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="filter" class="collapse d-lg-block">
+            <div class="filter mt-3">
+                <div class="filter-header">
+                    <h5>{{trans('tours.Choose_best_propose')}}</h5>
+                </div>
+                <div class="filter-body">
+
+                    <div class="filter-container">
+                        <div class="filter-container__loading" v-if="loading">
+                            <shared-loader></shared-loader>
+                        </div>
+                        <div class="filter-container__content" v-if="!loading">
+                            <button
+                                    type="button"
+                                    class="filter-clear"
+                                    @click.prevent="onFilterReset()">
+                                <span aria-hidden="true" class="filter-clear-icon">×</span>
+                                <span>{{trans('filter.Reset_filters')}}</span>
+                            </button>
+                            <div class="filter-group">
+                                <label class="filter-label">Длительность тура</label>
+                                <ul class="list-unstyled filter-checkboxes">
+                                    <li v-for="(dur, index) in durations ">
+                                        <label class="checkbox-row">
+                                            <div class="checkbox checkbox-primary">
+                                                <input
+                                                        type="checkbox"
+                                                        :value="dur"
+                                                        class="checkbox-field"
+                                                        v-model="checkedDurations"
+                                                        @change="filterChange()">
+                                                <span class="checkbox-label"></span>
+                                            </div>
+                                            <span class="filter-text" v-if="dur.to">{{dur.from}}-{{dur.to}} {{trans('filter.day')}}</span>
+                                            <span class="filter-text" v-if="!dur.to">{{dur.from}} {{trans('filter.and_more_days')}}</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="filter-group vue-slider-wrapper--default">
+                                <label class="filter-label">{{trans('filter.Price')}} ({{ currencyCode.code }})</label>
+                                <vue-slider
+                                        v-bind="price.options"
+                                        v-model="price.options.value"
+                                        @drag-end="filterChange()"
+                                ></vue-slider>
+                            </div>
+                            <div class="filter-group">
+                                <div role="tablist" class="filter-collapse" v-for="item in filterOptions">
+                                    <div class="filter-collapse-item">
+                                        <div role="tab" id="toursHead">
+                                            <h5>
+                                                <a data-toggle="collapse" :href="'#'+ item.id" role="button" aria-expanded="true"
+                                                   aria-controls="collapse-tours">
+                                                    {{ item.title }}
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div :id="item.id" class="collapse show" role="tabpanel" aria-labelledby="toursHead">
+                                            <ul class="list-unstyled filter-checkboxes">
+                                                <li v-for="option in item.options" class="super-button-wrapper">
+                                                    <label :for="option.id" class="checkbox-row">
+                                                        <div class="checkbox checkbox-primary">
+                                                            <input :id="option.id"
+                                                                   type="checkbox"
+                                                                   class="checkbox-field"
+                                                                   :name="option.id"
+                                                                   :value="option.id"
+                                                                   @change="filterChange()"
+                                                                   v-model="getData.options"
+                                                            >
+                                                            <span class="checkbox-label"></span>
+                                                        </div>
+                                                        <span class="filter-text">{{ option.title }}</span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <article class="col-lg-9 pr-lg-0 pb-4 mt-3 mt-lg-0">
+        <div class="cards js-scroll-parent">
+            <div class="filter_result_details">
+                <div class="filter_result_details__item">
+                    <span class="filter_result_details__label">{{trans('tours.Found')}}:</span>
+                    <span class="filter_result_details__content">{{totalFound}}</span>
+                </div>
+            </div>
+
+            <div class="cards-item" v-for="(tour, k) in tours" v-if="durs(k)">
+                <div class="card card-primary flex-md-row">
+                    <div class="card-img">
+                        <a :href="'tours/'+tour.slug" target="_blank">
+                            <div :class="[rybbon(k).type ? 'ribbon-'+ rybbon(k).type : '']" class="ribbon" v-if="rybbon(k)"
+                                 v-text="rybbon(k).title"></div>
+                            <div class="card-layer">
+                            <span class="card-search d-flex align-items-center justify-content-center rounded-circle">
+                                <svg class="icon icon--search" width="31px" height="32px">
+                                    <use xlink:href="#search"></use>
+                                </svg>
+                            </span>
+                            </div>
+                        </a>
+                        <img :src="tourImg(k)" :alt="tour.title">
+
+                    </div>
+                    <div class="card-info">
+                        <div class="card-header">
+                            <div class="card-header-item">
+                                <h3 class="card-title">
+                                    <a :href="tour.slug | viewUrl(routeView)" target="_blank">{{tour.title}}</a>
+                                </h3>
+                                <span class="text-subtitle" v-if="tour.place">
+                                                        <svg class="icon icon--location-sm" width="22px" height="32px">
+                                                            <use xlink:href="#location-sm"></use>
+                                                        </svg>
+                                {{tour.place.name}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-row">
+                                <strong class="card-time">
+                                    <span v-if="tour.days > 0">{{tour.days}} {{trans('tours.Days')}}</span>
+                                    <span v-if="tour.nights > 0">{{tour.nights}} {{trans('tours.Nights')}}</span>
+                                </strong>
+                            </div>
+                            <div class="card-row align-items-sm-end">
+                                <ul class="list-unstyled card-list">
+                                    <li>
+                                        <span v-if="tour.flight_included">{{trans('tours.Flight')}}: {{trans('tours.Included_in_price')}}</span>
+                                        <span v-if="tour.flight_price && tour.flight_cur">{{trans('tours.Flight')}}: {{tour.flight_price}} {{tour.flight_cur.code}}</span>
+                                    </li>
+                                    <li>
+                                        <span>{{trans('tours.Transfer')}}:</span>
+                                        <span v-if="tour.transfer_included">{{trans('tours.Included_in_price')}}</span>
+                                        <span v-if="tour.transfer_price && tour.transfer_cur">{{tour.transfer_price}} {{tour.transfer_cur.code}}</span>
+                                    </li>
+                                    <li>
+                                        <span>{{trans('tours.Food')}}:</span><span> {{tourFood(k)}}</span>
+                                    </li>
+                                    <li>
+                                        <span>{{trans('tours.Accommodation')}}:</span><span> {{tourAccommodation(k)}}</span>
+                                    </li>
+                                </ul>
+                                <div class="price price-sale">
+                                    <p style="color: green; font-weight: bold; font-size: 20px"></p>
+                                    <span>&nbsp<strong>{{tour.minPrice | moneyFormatterFilter}} {{currencyCode.code}}</strong></span>
+                                    <em v-if="tour.price_per_person">{{trans('tours.Per_person')}}</em>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-badges">
+                            </div>
+                            <div class="card-button">
+                                <a :href="tour.slug | viewUrl(routeView)" target="_blank"
+                                   class="btn btn-outline-primary">{{trans('main.Learn_more')}}</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="text-center loading-wrap" v-if="loadingContent">
+                <shared-loader></shared-loader>
+            </div>
+        </div>
+    </article>
+</div>

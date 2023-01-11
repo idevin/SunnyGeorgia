@@ -1,0 +1,71 @@
+.social-sharing {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.social-sharing__item {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.2s ease-out;
+}
+
+.social-sharing__item .fa {
+  //font-size: 15px;
+}
+
+.social-sharing__item--facebook {
+  background: #3C599F;
+}
+
+.social-sharing__item--facebook:hover {
+  background: darken(#3C599F, 10%);
+}
+
+.social-sharing__item--google-plus {
+  background: #DC4E40;
+}
+
+.social-sharing__item--google-plus:hover {
+  background: darken(#DC4E40, 10%);
+}
+
+.social-sharing__item--odnoklassniki {
+  background: #F58220;
+}
+
+.social-sharing__item--odnoklassniki:hover {
+  background: darken(#F58220, 10%);
+}
+
+.social-sharing__item--telegram {
+  background: #2EA6DA;
+}
+
+.social-sharing__item--telegram:hover {
+  background: darken(#2EA6DA, 10%);
+}
+
+.social-sharing__item--twitter {
+  background: #32CCFE;
+}
+
+.social-sharing__item--twitter:hover {
+  background: darken(#32CCFE, 10%);
+}
+
+.social-sharing__item--vk {
+  background: #4A76A8;
+}
+
+.social-sharing__item--vk:hover {
+  background: darken(#4A76A8, 10%);
+}

@@ -1,0 +1,25 @@
+User-agent: *
+Disallow: /cabinet/
+Disallow: *?price
+Disallow: *?currency=
+Disallow: *?date=
+Disallow: */register$
+Disallow: */login$
+Disallow: */password/reset$
+Sitemap: https://sunnygeorgia.travel/sitemap.xml
+
+User-agent: Yandex
+Disallow: /cabinet/
+Disallow: *?price
+Disallow: *?currency=
+Disallow: *?date=
+Disallow: */register$
+Disallow: */login$
+Disallow: */password/reset$
+Host: https://sunnygeorgia.travel
+
+User-Agent: Googlebot
+Allow: /js/*.js
+Allow: /css/*.css
+
+Sitemap: https://sunnygeorgia.travel/sitemap.xml

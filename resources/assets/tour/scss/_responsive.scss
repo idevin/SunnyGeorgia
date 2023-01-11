@@ -1,0 +1,65 @@
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+  .p-top__title, .p-top__price_big {
+    font-size: 28px
+  }
+  .p-top__price {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 992px) {
+  .p-order-placement__title {
+    font-size: 18px;
+  }
+  .p-order-placement-item__title {
+    line-height: 1.5;
+    font-size: 24px;
+  }
+  .p-full-description__day-title {
+    padding-bottom: 20px;
+  }
+  .p-full-description__day-title, .p-prepayment__title, .p-add-description__title, .p-short-description__title {
+    font-size: 24px
+  }
+  .p-order-placement-item__description {
+    width: 60%;
+    padding: 0 20px;
+  }
+
+  .p-order-placement-item__price {
+    width: 40%;
+  }
+
+  .p-order__select-date-form {
+    display: flex;
+    width: 80%;
+    position: static;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .p-order__select-participates-form {
+    position: static;
+    padding: 0;
+    box-shadow: none;
+    display: flex;
+    flex-flow: column;
+  }
+
+  .p-order__select-date {
+    width: 59%;
+  }
+
+  .p-order__select-participates {
+    width: 39%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width:1170px!important
+  }
+}

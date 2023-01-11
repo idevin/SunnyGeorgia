@@ -1,0 +1,66 @@
+<?php
+
+namespace App\MediaLibrary\UrlGenerator;
+
+use Spatie\MediaLibrary\Support\UrlGenerator\DefaultUrlGenerator;
+
+class CustomUrlGenerator extends DefaultUrlGenerator
+{
+    /**
+     * Get the url for the profile of a media item.
+     *
+     * @return string
+     */
+    public function getUrl(): string
+    {
+        $disk = $this->media->disk;
+        return config("medialibrary.{$disk}.domain") . '/' . $this->getPathRelativeToRoot();
+    }
+
+    /**
+     * Get the temporary url for a media item.
+     *
+     * @param \DateTimeInterface $expiration
+     * @param array $options
+     *
+     * @return string
+     */
+    public function getTemporaryUrl(\DateTimeInterface $expiration, array $options = []): string
+    {
+        return $this
+            ->filesystemManager
+            ->disk($this->media->disk)
+            ->temporaryUrl($this->getPath(), $expiration, $options);
+    }
+
+    /**
+     * Get the url for the profile of a media item.
+     *
+     * @return string
+     */
+    public function getPath(): string
+    {
+        return $this->media->disk === 'public' ? $this->getStoragePath() . '/' . $this->getPathRelativeToRoot() : $this->getPathRelativeToRoot();
+    }
+
+    protected function getStoragePath(): string
+    {
+        $diskRootPath = $this->config->get("filesystems.disks.{$this->media->disk}.root");
+        return realpath($diskRootPath);
+    }
+
+    /*
+        * Get the path where the whole medialibrary is stored.
+        */
+
+    /**
+     * Get the url to the directory containing responsive images.
+     *
+     * @return string
+     */
+    public function getResponsiveImagesDirectoryUrl(): string
+    {
+        $disk = $this->media->disk;
+        return config("medialibrary.{$disk}.domain") . '/' . $this->pathGenerator->getPathForResponsiveImages($this->media);
+    }
+}

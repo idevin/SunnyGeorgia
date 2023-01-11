@@ -1,0 +1,206 @@
+@media (min-width: 576px) {
+  .event-block__more-button-icon{
+    display: none;
+  }
+  .event-block__more-button-text{
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .event-block__title {
+    padding-bottom: 15px;
+  }
+  .mobile-reviews {
+    display: none !important;
+  }
+  .breadcrumb {
+    padding: 30px 0;
+  }
+
+  .date-block-wrap {
+    margin: 0 10px;
+  }
+
+  .search-block__button{
+    display: block;
+  }
+  .search-block {
+    width: auto;
+  }
+  .search-block__input_city {
+    width: 170px
+  }
+  .search-block__input_date {
+    .date-icon {
+      left: 25px
+    }
+
+    .search-block__input {
+      font-size: 15px;
+      width: 150px;
+    }
+  }
+  .search-sort-block {
+    flex-direction: row;
+  }
+  .city-block {
+    background-image: url('/images/header-excursions.jpg');
+    padding: 40px 0 80px 0;
+    min-height: 230px;
+    margin-bottom: 90px;
+  }
+
+  .city-block:before {
+    background: linear-gradient(90deg, rgba(0, 0, 0, .3), transparent, rgba(0, 0, 0, .3));
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .city-block__switcher {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -40px;
+  }
+
+  .city-block__switcher-item {
+    font-size: 24px;
+    font-weight: bold;
+    max-width: 300px;
+    width: 100%;
+    letter-spacing: 1px;
+    text-align: center;
+    background: #041f31;
+    padding: 25px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all ease .3s;
+  }
+
+  .city-block__city-text {
+    display: block
+  }
+
+  .city-block__breadcrumbs {
+    display: block
+  }
+
+  .city-block__city-title {
+    font-size: 72px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 0 5px 9px rgba(0, 0, 0, 0.5);
+    margin: 0;
+  }
+
+  .sort-block {
+    display: flex
+  }
+
+  .search-block__title, .search-block__search, .event-block__details-top, .event-block__short-description, .event-block__details-bottom {
+    display: block
+  }
+
+  .search-block__departure, .search-block__date {
+    width: auto;
+    position: relative;
+  }
+
+  .event-block__price {
+    display: block;
+    line-height: 1.2;
+  }
+
+  .event-block__title-link {
+    font-size: 22px
+  }
+
+  .event-block__duration-name, .event-block__departure-name, .event-block__more-button {
+    font-size: 18px
+  }
+
+  .event-block__price-old, .event-block__price-new, .event-block__price-value {
+    padding: 0
+  }
+
+  .event-block__price-new, .event-block__price-value {
+    font-size: 28px
+  }
+
+  .event-block__price-description {
+    font-size: 14px
+  }
+
+  .event-block {
+    flex-wrap: nowrap;
+  }
+
+  .event-block__details {
+    flex-direction: column;
+    width: auto;
+  }
+
+  .event-block__content {
+    padding: 10px 10px 10px 20px;
+  }
+
+  .search-block-wrap {
+    background: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .search-block__input {
+    font-size: 18px;
+    line-height: 55px
+  }
+
+  .search-block__departure {
+    padding-right: 10px
+  }
+  .search-block__date {
+    padding: 0 10px
+  }
+
+  .event-block__image {
+    position: relative;
+    height: 220px;
+    width: 220px;
+    border-radius: 7px;
+  }
+
+  .event-block__image img {
+    width: 220px;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (max-width: 768px) {
+  .popover-origin {
+    left: auto !important;
+    right: 0 !important;
+
+    .popover-content:after {
+      display: none !important;
+    }
+
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width:1170px!important
+  }
+}

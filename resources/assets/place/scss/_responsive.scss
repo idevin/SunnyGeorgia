@@ -1,0 +1,59 @@
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+  .p-top__title, .p-top__price_big {
+    font-size: 28px
+  }
+  .p-top__price {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 992px) {
+  .p-full-description__day-title {
+    padding-bottom: 20px;
+  }
+  .p-full-description__day-title, .p-prepayment__title, .p-add-description__title, .p-short-description__title,.p-full-description__title,.p-order-details__title {
+    font-size: 24px
+  }
+  .d-lg-none.p-order_send-query__wrapper {
+    display: none
+  }
+  .p-order__select-participates {
+    width: 48%;
+    display: flex;
+    flex-flow: column;
+  }
+
+  .p-order__select-participates_mobile {
+    display: none;
+  }
+
+  .p-order__select-participates-form {
+    box-shadow: none;
+    position: static;
+    padding: 0;
+    display: flex;
+    flex-flow: column;
+  }
+
+  .p-order__select-date-form {
+    display: flex;
+    position: static;
+    box-shadow: none;
+    padding: 0;
+    //width: 80%;
+  }
+
+  .p-order__select-date {
+    width: 48%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width:1170px!important
+  }
+}

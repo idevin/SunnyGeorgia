@@ -1,0 +1,13 @@
+<div class="gallery-swiper">
+    <!-- swiper1 -->
+    <swiper :options="swiperOptionTop" class="gallery-top" ref="swiperTop">
+        <swiper-slide v-for="image in images" :key="image.id + 'Top'" :style="imageStyle(image)"></swiper-slide>
+      
+        <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+        <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+    </swiper>
+    <!-- swiper2 Thumbs -->
+    <swiper :options="swiperOptionThumbs" class="gallery-thumbs" ref="swiperThumbs">
+        <swiper-slide v-for="image in images" :key="image.id + 'Thumbs'" :style="imageStyle(image)"></swiper-slide>
+    </swiper>
+</div>

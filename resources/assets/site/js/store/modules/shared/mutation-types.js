@@ -1,0 +1,1 @@
+export const RECEIVE_LOADING = 'RECEIVE_LOADING'

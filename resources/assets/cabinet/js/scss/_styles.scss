@@ -1,0 +1,75 @@
+html, body {
+  font-size: 15px;
+}
+
+.m-brand {
+  padding: 0 15px;
+  position: relative;
+}
+
+.m-brand__tools {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(200%) translateY(25%);
+}
+
+.dashboard-logo {
+  height: 38px;
+}
+
+.m-aside-menu .m-menu__nav>.m-menu__section .m-menu__section-text {
+  font-size: 1rem;
+}
+
+.m-aside-menu.m-aside-menu--skin-dark .m-menu__nav>.m-menu__item>.m-menu__heading .m-menu__link-text,
+.m-aside-menu.m-aside-menu--skin-dark .m-menu__nav>.m-menu__item>.m-menu__link .m-menu__link-text {
+  color: #bfbfc4;
+}
+
+.m-aside-menu.m-aside-menu--skin-dark .m-menu__nav>.m-menu__item.m-menu__item--active>.m-menu__heading .m-menu__link-text,
+.m-aside-menu.m-aside-menu--skin-dark .m-menu__nav>.m-menu__item.m-menu__item--active>.m-menu__link .m-menu__link-text {
+  color: #b4aefd;
+}
+
+.m-aside-menu.m-aside-menu--skin-dark .m-menu__nav>.m-menu__section .m-menu__section-text {
+  color: #868aa8;
+}
+
+.m-brand .m-brand__logo .m-brand__logo-wrapper {
+  font-size: 1.3rem;
+  color: #868aa8;
+}
+
+.mce-tinymce {
+  box-shadow: none!important;;
+}
+
+.mce-panel {
+  border: 1px solid #ebedf2!important;
+}
+
+control:focus {
+  border-color: #716aca;
+  color: #575962;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.mce-top-part::before {
+  box-shadow: none!important;
+}
+
+.m-portlet .m-portlet__head .m-portlet__head-caption .m-portlet__head-title small {
+  font-weight: 300;
+  padding-left: 0.5rem;
+  font-size: 1rem;
+  color: #a7abc3;
+}
+
+.profile__confirmation-block {
+  margin-top: 5px;
+  & button {
+    margin: 5px 0;
+  }
+}
