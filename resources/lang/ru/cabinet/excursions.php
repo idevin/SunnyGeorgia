@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirill
- * Date: 09.03.2018
- * Time: 13:47
- */
+
 return [
     'Length of the excursion route' => 'Длина маршрута',
     'Excursion content' => 'Описание экскурсии',

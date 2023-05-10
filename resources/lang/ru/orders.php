@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirill
- * Date: 09.03.2018
- * Time: 13:47
- */
+
 return [
     'Cost per adult' => 'Стоимость за взрослого',
     'Cost per child' => 'Стоимость за ребенка',

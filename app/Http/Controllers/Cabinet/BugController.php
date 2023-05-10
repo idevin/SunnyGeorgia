@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirill
- * Date: 29.08.2018
- * Time: 12:23
- */
+
 
 namespace App\Http\Controllers\Cabinet;
 

@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirill
- * Date: 10.11.2017
- * Time: 17:25
- */
 
 namespace App\Http\Controllers\Cabinet;
-
 
 use App\Http\Controllers\Controller;
 use App\Models\Excursions\Excursion;

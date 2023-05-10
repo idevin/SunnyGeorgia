@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kirill
- * Date: 21.12.2017
- * Time: 16:46
- */
+
 
 return [
     'day_of_week' => [
